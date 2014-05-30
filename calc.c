@@ -28,7 +28,7 @@ static char operation_input[WRITE_SIZE];
  */
 int write_arg1(struct file *file, const char *buf, unsigned long count, void *data)
 {
-	if(count > WRITE_SIZE) {
+	if (count > WRITE_SIZE) {
     	count = WRITE_SIZE;
 	}
 
@@ -42,7 +42,7 @@ int write_arg1(struct file *file, const char *buf, unsigned long count, void *da
  */
 int write_arg2(struct file *file, const char *buf, unsigned long count, void *data)
 {
-	if(count > WRITE_SIZE) {
+	if (count > WRITE_SIZE) {
     	count = WRITE_SIZE;
 	}
 
@@ -56,7 +56,7 @@ int write_arg2(struct file *file, const char *buf, unsigned long count, void *da
  */
 int write_operation(struct file *file, const char *buf, unsigned long count, void *data)
 {
-	if(count > WRITE_SIZE) {
+	if (count > WRITE_SIZE) {
     	count = WRITE_SIZE;
 	}
 
@@ -109,7 +109,7 @@ int init_module()
 	if(!arg1) {
     	printk(KERN_INFO "Error creating proc entry");
     	return -ENOMEM;
-    }
+	}
 	arg1->write_proc = write_arg1;
 
 	// arg2
@@ -117,7 +117,7 @@ int init_module()
 	if(!arg2) {
     	printk(KERN_INFO "Error creating proc entry");
     	return -ENOMEM;
-    }
+	}
 	arg2->write_proc = write_arg2;
 
 	// operation
@@ -125,7 +125,7 @@ int init_module()
 	if(!operation) {
     	printk(KERN_INFO "Error creating proc entry");
     	return -ENOMEM;
-    }
+	}
 	operation->write_proc = write_operation;
 
 	// result
@@ -133,7 +133,7 @@ int init_module()
 	if(!result) {
     	printk(KERN_INFO "Error creating proc entry");
     	return -ENOMEM;
-    }
+	}
 	result->read_proc = read_result;
 
 	printk(KERN_INFO "/proc/%s created\n", PARENT_DIR);
