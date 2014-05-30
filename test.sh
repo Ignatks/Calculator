@@ -1,5 +1,4 @@
-echo "1" > /proc/calc/arg1
-echo "3" > /proc/calc/arg2
-echo "+" > /proc/calc/operation
-
-cat /proc/calc/result
+echo "2" > /sys/calc/arg1
+echo "4" > /sys/calc/arg2
+echo "-" > /sys/calc/operation
+cat /sys/calc/result
